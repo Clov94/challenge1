@@ -18,6 +18,8 @@ export const AddPaymentsComponent = ({ onAddPayment }) => {
         <TextField
           onChange={(e) => setAddPayment(parseInt(e.target.value))}
           value={addPayment}
+          label="Payment"
+          type="number"
         />
         <Button
           variant="contained"
