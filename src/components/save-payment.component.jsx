@@ -15,10 +15,11 @@ const styles = (theme) => ({
   },
 });
 
-export const EditPaymentsComponent = ({ onUpdatePayment }) => {
+export const SavePaymentComponent = ({ onUpdatePayment }) => {
+  console.log(onUpdatePayment);
   return (
     <div>
-      <Typography>Edit</Typography>
+      <Typography>Save</Typography>
     </div>
   );
 };
