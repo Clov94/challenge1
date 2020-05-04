@@ -1,5 +1,5 @@
 import React from "react";
-import { ListItem, ListItemText } from "@material-ui/core";
+import { ListItem, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
 export const ViewPaymentsComponent = ({ listOfPayments }) => {
@@ -7,15 +7,19 @@ export const ViewPaymentsComponent = ({ listOfPayments }) => {
   return (
     <div style={{ margin: "auto", float: "left", width: 500 }}>
       <div>{"View Of Payments"}</div>
-      <div>
-        {listOfPayments.payments.map(({ id, toPay }) => (
-          <div key={id} className={classes.styledList}>
-            <ListItem key={id}>
-              <ListItemText primary={`$ ${toPay}`} />
-            </ListItem>
-          </div>
-        ))}
-      </div>
+
+      {listOfPayments.payments.map(({ id, toPay }) => (
+        <div key={id} className={classes.styledList}>
+          <ListItem key={id}>
+            <TextField
+              disabled
+              defaultValue={`$ ${toPay}`}
+              label="Payment"
+              variant="outlined"
+            />
+          </ListItem>
+        </div>
+      ))}
     </div>
   );
 };

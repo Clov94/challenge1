@@ -1,12 +1,10 @@
 import React from "react";
 import { AddPaymentsComponent } from "./add-payments.component";
-import { makeStyles } from "@material-ui/styles";
 import registers from "../components/register.json";
 import { EditableSectionComponent } from "./editable-section.component";
 import { ViewPaymentsComponent } from "./view-payments.component";
 
 export const TrackerPaymentsComponent = () => {
-  const classes = useStyles();
   const [listOfPayments, setListOfPayments] = React.useState(registers);
 
   const onAddPayment = (payment) => {
@@ -46,7 +44,3 @@ export const TrackerPaymentsComponent = () => {
     </div>
   );
 };
-
-const useStyles = makeStyles(() => ({
-  floatButton: { float: "left" },
-}));

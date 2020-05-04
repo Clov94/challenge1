@@ -15,8 +15,10 @@ export const EditPaymentsComponent = ({
 
   const classes = useStyles();
   return (
-    <div className={classes.alignBox}>
+    <div id={`Edit-${id}`}>
       <TextField
+        className={classes.styleEditable}
+        label="Edit"
         disabled={switchButton === `Edit-${id}`}
         id={`${id}`}
         defaultValue={toPay}
@@ -62,5 +64,5 @@ export const EditPaymentsComponent = ({
 };
 
 const useStyles = makeStyles(() => ({
-  alignBox: { float: "left" },
+  styleEditable: { height: 75, textAlignLast: "center" },
 }));
