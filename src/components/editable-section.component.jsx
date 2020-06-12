@@ -9,7 +9,7 @@ export const EditableSectionComponent = ({
   return (
     <div style={{ margin: "auto", float: "left", width: 500 }}>
       <div>{"Editable Payments"}</div>
-      {listOfPayments.payments.map(({ id, toPay }) => (
+      {listOfPayments.map(({ id, toPay }) => (
         <EditPaymentsComponent
           key={id}
           id={id}

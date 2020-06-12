@@ -34,6 +34,5 @@ export const AddPaymentsComponent = ({ onAddPayment }) => {
 };
 
 const useStyles = makeStyles(() => ({
-  addContainer: { height: 75, textAlignLast: "center" },
   addInsider: { float: "left" },
 }));

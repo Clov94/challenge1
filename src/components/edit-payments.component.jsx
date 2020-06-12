@@ -11,9 +11,10 @@ export const EditPaymentsComponent = ({
   onDeletePayment,
 }) => {
   const [switchButton, setSwitchButton] = React.useState(`Edit-${id}`);
-  const [editPayment, setEditPayment] = React.useState("");
+  const [editPayment, setEditPayment] = React.useState(toPay);
 
   const classes = useStyles();
+
   return (
     <div id={`Edit-${id}`}>
       <TextField
@@ -42,9 +43,11 @@ export const EditPaymentsComponent = ({
           variant="contained"
           color="primary"
           onClick={() => {
-            editPayment === ""
-              ? onUpdatePayment(id, toPay)
-              : onUpdatePayment(id, editPayment);
+            console.log(editPayment);
+            // editPayment === ""
+            //   ? onUpdatePayment(id, toPay)
+            // :
+            onUpdatePayment(id, editPayment);
             setSwitchButton(`Edit-${id}`);
           }}
         >

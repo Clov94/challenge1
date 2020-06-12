@@ -8,7 +8,7 @@ export const ViewPaymentsComponent = ({ listOfPayments }) => {
     <div style={{ margin: "auto", float: "left", width: 500 }}>
       <div>{"View Of Payments"}</div>
 
-      {listOfPayments.payments.map(({ id, toPay }) => (
+      {listOfPayments.map(({ id, toPay }) => (
         <div key={id} className={classes.styledList}>
           <ListItem key={id}>
             <TextField

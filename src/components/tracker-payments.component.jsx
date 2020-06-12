@@ -4,30 +4,40 @@ import registers from "../components/register.json";
 import { EditableSectionComponent } from "./editable-section.component";
 import { ViewPaymentsComponent } from "./view-payments.component";
 
-export const TrackerPaymentsComponent = () => {
-  const [listOfPayments, setListOfPayments] = React.useState(registers);
+export const TrackerPaymentsComponent = (payments) => {
+  const [listOfPayments, setListOfPayments] = React.useState(
+    registers.payments
+  );
 
   const onAddPayment = (payment) => {
-    const idPlus = listOfPayments.payments.length + 1;
+    const idPlus = listOfPayments.length + 1;
     setListOfPayments({
       ...listOfPayments,
-      payments: [...listOfPayments.payments, { id: idPlus, toPay: payment }],
+      payments: [...listOfPayments, { id: idPlus, toPay: payment }],
     });
   };
 
   const onDeletePayment = (idToDelete) => {
-    const payments = listOfPayments.payments.filter(
+    const payments = listOfPayments.filter(
       (payment) => payment.id !== idToDelete
     );
     setListOfPayments({ payments });
   };
 
-  const onUpdatePayment = (id, editPayment) => {
-    const listUpdated = listOfPayments.payments.filter((pay) =>
-      pay.id === id ? (pay.toPay = parseInt(editPayment)) : pay.toPay
-    );
-    setListOfPayments({ payments: listUpdated });
+  const onUpdatePayment = (id, editedPayment) => {
+    const listUpdated = listOfPayments.filter((pay) => {
+      if (pay.id === id) {
+        return (pay.toPay = parseInt(editedPayment));
+      }
+      return pay.toPay;
+    });
+    setListOfPayments({
+      ...listOfPayments,
+      payments: listUpdated,
+    });
   };
+
+  // console.log(listOfPayments);
 
   return (
     <div>
